@@ -24,6 +24,28 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="coursPU">
+
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>ma.ensa.relations.Cours</class>
+        <class>ma.ensa.relations.Student</class>
+        <class>ma.ensa.relations.Addresse</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="Iyas.2020"/>
+
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+
+            <property name="eclipseLink.logging.level" value="FINE"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="employePU">
 
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
@@ -43,5 +65,4 @@
             <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
-
 </persistence>

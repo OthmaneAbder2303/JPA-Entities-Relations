@@ -17,6 +17,13 @@ public class Addresse {
 
     public Addresse() {}
 
+    public Addresse(String pays, String ville, String rue, String codePostal, String fax) {
+        this.pays = pays;
+        this.ville = ville;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.fax = fax;
+    }
 
     public void setId(Long id) {
         this.id = id;
