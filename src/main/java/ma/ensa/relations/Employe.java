@@ -2,6 +2,8 @@ package ma.ensa.relations;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Employe {
     @Id
@@ -11,8 +13,24 @@ public class Employe {
     private String prenom;
     private String adresse;
     private String email;
+
     @ManyToOne
     private Employe chef;
+
+    @OneToMany(mappedBy = "chef", cascade = CascadeType.ALL)
+    private List<Employe> subordonnes;
+
+    public Employe(String nom, String prenom, String adresse, String email, Employe chef) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.email = email;
+        this.chef = chef;
+    }
+
+    public Employe() {
+
+    }
 
     public Long getId() {
         return id;
@@ -60,5 +78,13 @@ public class Employe {
 
     public void setChef(Employe chef) {
         this.chef = chef;
+    }
+
+    public List<Employe> getSubordonnes() {
+        return subordonnes;
+    }
+
+    public void setSubordonnes(List<Employe> subordonnes) {
+        this.subordonnes = subordonnes;
     }
 }
