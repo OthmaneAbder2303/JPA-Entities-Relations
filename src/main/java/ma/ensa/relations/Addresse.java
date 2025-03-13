@@ -12,6 +12,7 @@ public class Addresse {
     private String rue;
     private String codePostal;
     private String fax;
+
     @OneToOne(mappedBy = "adresse")
     private Student student;
 
